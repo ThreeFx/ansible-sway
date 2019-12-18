@@ -24,9 +24,10 @@
     src: "{{ item }}.j2"
     dest: "~/.config/sway/config.d/{{ item }}"
   with_items:
+    - 00-extra-early
     - 20-autostart
     - 50-keybindings
-    - 99-extra
+    - 99-extra-late
   when: sway_full_config | length == 0
 
 - name: Configure sway (standalone)
