@@ -2,7 +2,7 @@
 - name: Install sway and utilities
   become: True
   apt:
-    packages:
+    package:
       - sway
       - grim
       - slurp
