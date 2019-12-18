@@ -6,6 +6,7 @@
       - sway
       - grim
       - slurp
+      - wl-clipboard
 
 - name: Ensure configuration directory exists
   file:
