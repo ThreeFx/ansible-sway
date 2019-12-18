@@ -1,0 +1,17 @@
+---
+galaxy_info:
+  author: Ben Fiedler
+  description: Installs and configures sway
+
+  license: BSD
+
+  min_ansible_version: 2.7
+
+  platforms:
+    - name: Debian
+      versions:
+       - 10
+
+  galaxy_tags: []
+
+dependencies: []

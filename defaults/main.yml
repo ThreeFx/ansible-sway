@@ -1,0 +1,19 @@
+---
+sway_terminal_emulator: "x-terminal-emulator"  # terminal emulator to use
+
+sway_full_config: ""          # An entire sway config. If you specify this, then no
+                              # other configuration will be applied.
+
+
+sway_extra_config_early: ""   # optional, additional config to append before autostarting
+                              # and keybindings
+
+sway_autostart_programs: []   # list of programs to start when starting sway
+# - /usr/bin/slack            # do not put ampersands (&) here
+# - /usr/bin/keepasssc
+
+sway_keybindings: []          # extra keybindings to configure
+# - key:
+#   action: 
+
+sway_extra_config_late: ""    # optional, additional config to append after all blocks before

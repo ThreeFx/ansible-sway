@@ -1,0 +1,7 @@
+# {{ ansible_managed }}
+
+{% if sway_extra_config_early == "" %}
+# No early extra config specified
+{% else %}
+{{ sway_extra_config_early }}
+{% endif %}
