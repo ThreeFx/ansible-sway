@@ -14,7 +14,6 @@
     state: directory
 
 - name: Configure sway (modular)
-  when: sway_full_config | length == 0
   block:
     - name: Ensure main config exists
       template:
@@ -31,8 +30,7 @@
         - 99-extra-late
 
     - name: Configure sway with systemd
-      when: sway_systemd_integration | bool
-      block: 
+      block:
         - name: Ensure configuration directory exists
           file:
             path: "~/.config/systemd/user/sway-autostart"
@@ -50,19 +48,20 @@
           with_items:
             - sway-session.target
             - sway.service
-        
+
         - name: Configure autostarts (systemd)
           template:
             src: "systemd/autostart.service.j2"
             dest: "~/.config/systemd/user/sway-autostart/{{ item | basename }}.service"
           with_items: "{{ sway_autostart_programs }}"
+      when: sway_systemd_integration | bool
 
     - name: Configure autostarts (non-systemd)
       template:
         src: "{{ item }}.j2"
         dest: "~/.config/sway/config.d/{{ item }}"
-        - 20-autostart
       when: not (sway_systemd_integration | bool)
+  when: sway_full_config | length == 0
 
 - name: Configure sway (standalone)
   template:
