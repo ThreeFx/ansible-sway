@@ -1,6 +1,8 @@
 ---
 sway_terminal_emulator: "x-terminal-emulator"  # terminal emulator to use
-sway_custom_packages: ""      # custom packages to install (e.g. dmenu, waybar, etc.)
+sway_custom_packages: []      # custom packages to install (e.g. dmenu, waybar, etc.)
+# - rofi
+# - polybar
 
 sway_full_config: ""          # An entire sway config. If you specify this, then no
                               # other configuration will be applied.
