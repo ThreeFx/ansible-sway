@@ -16,6 +16,7 @@ Role Variables
 | Variable Name | Default Value | Description |
 --------------- |---------------|--------------
 `sway_terminal_emulator` | "x-terminal-emulator" | Terminal emulator to use
+`sway_custom_packages` | "" | custom packages to install (e.g. dmenu, waybar, etc.)
 `sway_full_config` | "" | An entire sway config. If you specify this, then no other configuration will be applied.  
 `sway_extra_config_early` | "" | optional, additional config to append before autostarting and keybindings
 `sway_autostart_programs` | [] | list of programs to start when starting sway (see `defaults/main.yml` for more information)

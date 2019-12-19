@@ -8,6 +8,11 @@
       - slurp
       - wl-clipboard
 
+- name: Install custom packages
+  become: True
+  apt:
+    package: "{{ sway_custom_packages }}"
+
 - name: Ensure configuration directory exists
   file:
     path: ~/.config/sway/config.d
