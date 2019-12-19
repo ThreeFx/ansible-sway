@@ -38,7 +38,7 @@
 
         - name: Configure sway systemd integration
           template:
-            src: "10-systemd.j2"
+            src: "sway/10-systemd.j2"
             dest: "~/.config/sway/config.d/10-systemd"
 
         - name: Configure systemd services and targets
