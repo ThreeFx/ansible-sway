@@ -1,25 +1,32 @@
 ---
+# --- systemd configuration ---
+sway_systemd_integration: True # whether to systemd integration
+sway_systemd_env: []           # environment file for sway
+# - name: MY_ENV_VAR           # name of env var to set
+#   value: ENV_VAR_VALUE       # value of env var to set
+
+# --- standalone config ---
+sway_full_config: ""           # An entire sway config. If you specify this, then no
+                               # modular configuration option will be applied.
+
+# --- modular config ---
 sway_terminal_emulator: "x-terminal-emulator"  # terminal emulator to use
 
-sway_full_config: ""          # An entire sway config. If you specify this, then no
-                              # other configuration will be applied.
+sway_extra_config_early: ""    # optional, additional config to append before
+                               # autostarting and keybindings
 
-
-sway_extra_config_early: ""   # optional, additional config to append before autostarting
-                              # and keybindings
-
-sway_autostart_programs: []   # list of programs to start when starting sway
-# - /usr/bin/slack            # do not put ampersands (&) here
+sway_autostart_programs: []    # list of programs to start when starting sway
+# - /usr/bin/slack             # must be fully qualified paths
 # - /usr/bin/keepasssc
 
-# Default sway keybindings
-sway_keybinding_reload: "$mod+Shift+c"
-sway_keybinding_kill: "$mod+Shift+q"
-sway_keybinding_fullscreen: "$mod+f"
-sway_keybinding_exit: "$mod+Shift+e"
+sway_keybinding_reload: "$mod+Shift+c" # reload binding
+sway_keybinding_kill: "$mod+Shift+q"   # kill binding
+sway_keybinding_fullscreen: "$mod+f"   # fullscreen binding
+sway_keybinding_exit: "$mod+Shift+e"   # exit binding
 
-sway_keybindings: []          # extra keybindings to configure
+sway_keybindings: []                   # extra keybindings to configure
 # - key:
 #   action: 
 
-sway_extra_config_late: ""    # optional, additional config to append after all blocks before
+sway_extra_config_late: ""             # optional, additional config to append
+                                       # after all blocks before

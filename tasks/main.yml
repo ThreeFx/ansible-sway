@@ -13,25 +13,58 @@
     path: ~/.config/sway/config.d
     state: directory
 
-- name: Configure sway
-  template:
-    src: sway-config.j2
-    dest: ~/.config/sway/config
-  when: sway_full_config | length == 0
+- name: Configure sway (modular)
+  block:
+    - name: Ensure main config exists
+      template:
+        src: sway/config.j2
+        dest: ~/.config/sway/config
 
-- name: Configure keybindings, autostarts, etc.
-  template:
-    src: "{{ item }}.j2"
-    dest: "~/.config/sway/config.d/{{ item }}"
-  with_items:
-    - 00-extra-early
-    - 20-autostart
-    - 50-keybindings
-    - 99-extra-late
+    - name: Configure keybindings and extra config
+      template:
+        src: "sway/{{ item }}.j2"
+        dest: "~/.config/sway/config.d/{{ item }}"
+      with_items:
+        - 00-extra-early
+        - 50-keybindings
+        - 99-extra-late
+
+    - name: Configure sway with systemd
+      block:
+        - name: Ensure configuration directory exists
+          file:
+            path: "~/.config/systemd/user/sway-autostart"
+            state: directory
+
+        - name: Configure sway systemd integration
+          template:
+            src: "sway/10-systemd.j2"
+            dest: "~/.config/sway/config.d/10-systemd"
+
+        - name: Configure systemd services and targets
+          template:
+            src: "systemd/{{ item }}.j2"
+            dest: "~/.config/systemd/user/{{ item }}"
+          with_items:
+            - sway-session.target
+            - sway.service
+
+        - name: Configure autostarts (systemd)
+          template:
+            src: "systemd/autostart.service.j2"
+            dest: "~/.config/systemd/user/sway-autostart/{{ item | basename }}.service"
+          with_items: "{{ sway_autostart_programs }}"
+      when: sway_systemd_integration | bool
+
+    - name: Configure autostarts (non-systemd)
+      template:
+        src: "{{ item }}.j2"
+        dest: "~/.config/sway/config.d/{{ item }}"
+      when: not (sway_systemd_integration | bool)
   when: sway_full_config | length == 0
 
 - name: Configure sway (standalone)
   template:
-    src: sway-config-full.j2
+    src: sway/full-config.j2
     dest: ~/.config/sway/config
   when: sway_full_config | length > 0
