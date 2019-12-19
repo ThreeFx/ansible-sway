@@ -12,6 +12,12 @@ sway_autostart_programs: []   # list of programs to start when starting sway
 # - /usr/bin/slack            # do not put ampersands (&) here
 # - /usr/bin/keepasssc
 
+# Default sway keybindings
+sway_keybinding_reload: "$mod+Shift+c"
+sway_keybinding_kill: "$mod+Shift+q"
+sway_keybinding_fullscreen: "$mod+f"
+sway_keybinding_exit: "$mod+Shift+e"
+
 sway_keybindings: []          # extra keybindings to configure
 # - key:
 #   action: 

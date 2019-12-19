@@ -2,14 +2,20 @@
 
 # --- Default keybindings ---
 
-# Exit sway (logs you out of your Wayland session)
-bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
-
 # Start a terminal
 bindsym $mod+Return exec $term
 
+# Reload sway
+bindsym {{ sway_keybinding_reload }} reload
+
+# Kill window
+bindsym {{ sway_keybinding_kill }} kill
+
 # Make the current focus fullscreen
-bindsym $mod+f fullscreen
+bindsym {{ sway_keybinding_fullscreen }} fullscreen
+
+# Exit sway (logs you out of your Wayland session)
+bindsym {{ sway_keybinding_exit }} exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 
 # Moving focus and windows
 bindsym $mod+$left focus left
