@@ -34,7 +34,7 @@
         - name: Ensure configuration directory exists
           file:
             path: "~/.config/systemd/user/sway-autostart"
-            type: directory
+            state: directory
 
         - name: Configure sway systemd integration
           template:
