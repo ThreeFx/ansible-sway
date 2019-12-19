@@ -7,7 +7,7 @@ Requirements
 ------------
 
 On Debian sway is only packaged in experimental (as of 18-12-2019). You have to ensure that
-experimental packages are enabled on your system.
+experimental packages are enabled on your system, for example using [my apt role](https://github.com/ThreeFx/ansible-apt).
 
 Role Variables
 --------------
