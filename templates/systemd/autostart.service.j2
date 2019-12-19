@@ -1,0 +1,10 @@
+[Unit]
+Description=Autostart configuration for {{ item }}
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart={{ item }}
+
+[Install]
+WantedBy=sway-session.target
