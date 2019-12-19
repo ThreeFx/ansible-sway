@@ -17,12 +17,12 @@
   block:
     - name: Ensure main config exists
       template:
-        src: sway-config.j2
+        src: sway/config.j2
         dest: ~/.config/sway/config
 
     - name: Configure keybindings and extra config
       template:
-        src: "{{ item }}.j2"
+        src: "sway/{{ item }}.j2"
         dest: "~/.config/sway/config.d/{{ item }}"
       with_items:
         - 00-extra-early
