@@ -1,0 +1,3 @@
+{% for var in sway_env %}
+export {{ var.name }}="{{ var.value }}"
+{% endfor %}

@@ -40,3 +40,9 @@
     src: sway-config-full.j2
     dest: ~/.config/sway/config
   when: sway_full_config | length > 0
+
+- name: Configure environment
+  template:
+    src: "zsh-env.j2"
+    dest: "~/.zprofile.d/50-sway"
+  when: sway_env | length > 0
