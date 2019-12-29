@@ -1,5 +1,5 @@
 # {{ ansible_managed }}
 
 {% for program in sway_autostart_programs %}
-{{ program }} &
+exec {{ program }} &
 {% endfor %}
