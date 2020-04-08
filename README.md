@@ -21,6 +21,7 @@ Role Variables
 `sway_full_config` | "" | An entire sway config. If you specify this, then no other configuration will be applied.  
 `sway_extra_config_early` | "" | optional, additional config to append before autostarting and keybindings
 `sway_autostart_programs` | [] | list of programs to start when starting sway (see `defaults/main.yml` for more information)
+`sway_keybinding_terminal` | "$mod+Return" | Default terminal keybinding
 `sway_keybinding_reload` | "$mod+Shift+c" | Default reload keybinding
 `sway_keybinding_kill` | "$mod+Shift+q" | Default kill keybinding
 `sway_keybinding_fullscreen` | "$mod+f" | Default fullscreen keybinding
