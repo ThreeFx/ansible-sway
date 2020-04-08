@@ -14,7 +14,7 @@ bindsym {{ sway_keybinding_kill }} kill
 # Make the current focus fullscreen
 bindsym {{ sway_keybinding_fullscreen }} fullscreen
 
-{% if sway_keybindin_exit_enable %}
+{% if sway_keybinding_exit_enable %}
 # Exit sway (logs you out of your Wayland session)
 bindsym {{ sway_keybinding_exit }} exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 {% endif %}
