@@ -25,6 +25,7 @@ Role Variables
 `sway_keybinding_reload` | "$mod+Shift+c" | Default reload keybinding
 `sway_keybinding_kill` | "$mod+Shift+q" | Default kill keybinding
 `sway_keybinding_fullscreen` | "$mod+f" | Default fullscreen keybinding
+`sway_keybinding_exit_enable` | True | Enable exit keybinding
 `sway_keybinding_exit` | "$mod+Shift+e" | Default exit keybinding
 `sway_keybindings` | [] | extra keybindings to configure, see `defaults/main.yml` for more information.
 `sway_extra_config_late` | "" | optional, additional config to append after all config before

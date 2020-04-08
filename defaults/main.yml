@@ -23,6 +23,7 @@ sway_keybinding_terminal:   "$mod+Return"
 sway_keybinding_reload:     "$mod+Shift+c"
 sway_keybinding_kill:       "$mod+Shift+q"
 sway_keybinding_fullscreen: "$mod+f"
+sway_keybinding_exit_enable: True
 sway_keybinding_exit:       "$mod+Shift+e"
 
 sway_keybindings: []          # extra keybindings to configure
